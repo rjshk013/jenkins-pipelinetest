@@ -35,11 +35,11 @@ services:
     privileged: true
     user: root
     ports:
-      - 8080:8080
+      - 8084:8080
       - 50000:50000
     container_name: jenkins
     volumes:
-      - /tmp/jenkins:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
+      - /home/myjenkins:/var/jenkins_home 
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - sonarqube
@@ -49,26 +49,18 @@ Paths of docker files of the containers are specified at context attribute in th
 
 ``sonarqube/Dockerfile``
 ```
-FROM sonarqube:6.7-alpine
+FROM sonarqube:lts
 ```
 
 ``jenkins/Dockerfile``
 ```
-FROM jenkins:2.60.3
+FROM jenkins/jenkins:lts
 ```
 
 If we run the following command in the same directory as the ``docker-compose.yml`` file, the Sonarqube and Jenkins containers will up and run.
 
 ```
 docker-compose -f docker-compose.yml up --build
-```
-
-```
-docker ps
-
-CONTAINER ID        IMAGE                COMMAND                  CREATED              STATUS              PORTS                                              NAMES
-87105432d655        pipeline_jenkins     "/bin/tini -- /usr..."   About a minute ago   Up About a minute   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
-f5bed5ba3266        pipeline_sonarqube   "./bin/run.sh"           About a minute ago   Up About a minute   0.0.0.0:9000->9000/tcp, 0.0.0.0:9092->9092/tcp     sonarqube
 ```
 
 ## GitHub configuration
