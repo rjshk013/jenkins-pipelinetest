@@ -39,7 +39,7 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
-      - /tmp/jenkins:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
+      - /home/myjenkins:/var/jenkins_home 
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - sonarqube
@@ -49,12 +49,12 @@ Paths of docker files of the containers are specified at context attribute in th
 
 ``sonarqube/Dockerfile``
 ```
-FROM sonarqube:6.7-alpine
+FROM sonarqube:lts
 ```
 
 ``jenkins/Dockerfile``
 ```
-FROM jenkins:2.60.3
+FROM jenkins/jenkins:lts
 ```
 
 If we run the following command in the same directory as the ``docker-compose.yml`` file, the Sonarqube and Jenkins containers will up and run.
