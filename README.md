@@ -87,6 +87,7 @@ stage('Push to Docker Registry'){
 }
 
 Note:the docker & maven tool names must be same as one we configured
+
 During Docker credential configure give the ID name same as dockerHubAccount ,if you change modify Jenkinsfile accordingly.
 
 Check our application is running on docker container from the local host.
@@ -99,5 +100,9 @@ will see Welcome to Dockerizing Jenkins Pipeline Tutorial
 
 Triggering a Jenkins build from a push to Github.
 
+note: Edit sonarcube url in pom.xml
+
 Reference : https://github.com/hakdogan/jenkins-pipeline
+
+
 
