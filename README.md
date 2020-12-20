@@ -114,6 +114,28 @@ on jenkins server go to configure system -give sonarcube url & credentials id
 
 For sonarcube scanner: Install tools by install automatically --select from maven --select version
 
+Or else You can install sonarcube scanner in jenkins server itself:
+
+login into jenkins docker
+
+create sonar-scanner directory under /var/jenkins_home
+
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+
+
+    unzip the Sonar Scanner binary:
+
+unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+
+update Jenkins to point to sonar-scanner binary (Manage Jenkins > Global Tool Configuration > SonarQube Scanner); you will need to uncheck “Install automatically” so you can explicitly set SONAR_RUNNER_HOME as /var/jenkins_home/sonar-scanner-3.3.0.1492-linux
+
+reference : https://funnelgarden.com/sonarqube-jenkins-docker/
+
+
+
+
+
+
 note: Edit sonarcube url in pom.xml
 
 
