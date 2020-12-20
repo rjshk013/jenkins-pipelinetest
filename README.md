@@ -100,7 +100,22 @@ will see Welcome to Dockerizing Jenkins Pipeline Tutorial
 
 Triggering a Jenkins build from a push to Github.
 
+sonarqube integration with jenkins:
+
+Either you can use sonarcube server running on docker in the same machine.
+
+login into sonarcube web console with default username & password (admin&admin)
+
+generate token from sonarcube --copy the id 
+
+create new credentails for sonarcube with secret text & add the paste the token
+
+on jenkins server go to configure system -give sonarcube url & credentials id 
+
+For sonarcube scanner: Install tools by install automatically --select from maven --select version
+
 note: Edit sonarcube url in pom.xml
+
 
 Reference : https://github.com/hakdogan/jenkins-pipeline
 
