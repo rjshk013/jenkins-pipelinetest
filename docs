@@ -142,4 +142,14 @@ note: Edit sonarcube url in pom.xml
 Reference : https://github.com/hakdogan/jenkins-pipeline
 
 
+plugins needed:
+---------------
+
+Maven integration
+Docker 
+sonarcube scanner
+
+
+
+
 
